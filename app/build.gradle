@@ -1,9 +1,7 @@
 plugins {
     id 'java'
-}
-
-plugins {
     id 'application'
+    id 'checkstyle'
 }
 
 group 'hexlet.code'
@@ -30,4 +28,6 @@ compileJava {
     options.release = 17
 }
 
-
+run {
+    standardInput = System.in
+}
