@@ -9,17 +9,19 @@ public class App {
                 1 - Greet
                 2 - Even
                 3 - Calc
+                4 - GCD
                 0 - Exit""");
         System.out.print("Your choice: ");
         Scanner sc = new Scanner(System.in);
         String choice = sc.nextLine();
         switch (choice) {
+            case "4":
             case "3":
             case "2":
                 Engine.playGame(choice);
                 break;
             case "1":
-                String name = Engine.greeting();
+                String name = Engine.greeting(choice);
                 break;
             case "0":
                 break;

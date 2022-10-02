@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 
 import java.util.Scanner;
 
@@ -9,41 +10,61 @@ public class Engine {
 
     private static final int VICTORY_SCORE = 3;
 
-    public static String greeting() {
+    public static String greeting(String gameId) {
         System.out.print("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         Scanner input = new Scanner(System.in);
         String name = input.nextLine();
         System.out.println("Hello, " + name + "!");
+        switch (gameId) {
+            case "4" -> System.out.println("Find the greatest common divisor of given numbers.");
+            case "3" -> System.out.println("What is the result of the expression?");
+            case "2" -> System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
+            default -> {
+            }
+        }
         return name;
     }
 
     public static void playGame(String gameId) {
-        String name = Engine.greeting();
+        String name = Engine.greeting(gameId);
         int score = 0;
-        System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
         while (score < VICTORY_SCORE) {
             switch (gameId) {
-                case "3" -> score = roundResult(Calc.playRound(), score, name);
-                case "2" -> score = roundResult(Even.playRound(), score, name);
-                default -> {
-                }
+                case "4":
+                    if (GCD.playRound()) {
+                        score += 1;
+                    } else {
+                        score = VICTORY_SCORE + 1;
+                    }
+                    break;
+                case "3":
+                    if (Calc.playRound()) {
+                        score += 1;
+                    } else {
+                        score = VICTORY_SCORE + 1;
+                    }
+                    break;
+                case "2":
+                    if (Even.playRound()) {
+                        score += 1;
+                    } else {
+                        score = VICTORY_SCORE + 1;
+                    }
+                    break;
+                default:
+                    break;
             }
+            roundResult(score, name);
         }
     }
 
-    public static int roundResult(Boolean result, int score, String name) {
-        int newScore = score;
-        if (result) {
-            newScore += 1;
-            if (newScore == VICTORY_SCORE) {
-                System.out.println("Congratulations, " + name + "!");
-            }
-        } else {
+    public static void roundResult(int score, String name) {
+        if (score == VICTORY_SCORE) {
+            System.out.println("Congratulations, " + name + "!");
+        } else if (score > VICTORY_SCORE) {
             System.out.println("Let's try again, " + name);
-            newScore = VICTORY_SCORE + 1;
         }
-        return newScore;
     }
 
     public static Boolean checkAnswer(String correctAnswer, String answer) {
