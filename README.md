@@ -9,3 +9,5 @@ GCD game asciiema: \
 https://asciinema.org/a/esiRqjzXEchUyO9SZNnvSNv8e \
 Progression game asciiema: \
 https://asciinema.org/a/PG907iD6VZMxFyToYmMiCxpZ8 \
+Prime game asciiema: \
+https://asciinema.org/a/SJYTBvTCaQsZ5047mBEwzULvA
