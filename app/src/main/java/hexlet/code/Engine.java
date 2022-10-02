@@ -81,7 +81,7 @@ public class Engine {
         if (score == VICTORY_SCORE) {
             System.out.println("Congratulations, " + name + "!");
         } else if (score > VICTORY_SCORE) {
-            System.out.println("Let's try again, " + name);
+            System.out.println("Let's try again, " + name + "!");
         }
     }
 
