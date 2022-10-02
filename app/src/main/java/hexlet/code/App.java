@@ -10,11 +10,13 @@ public class App {
                 2 - Even
                 3 - Calc
                 4 - GCD
+                5 - Progression
                 0 - Exit""");
         System.out.print("Your choice: ");
         Scanner sc = new Scanner(System.in);
         String choice = sc.nextLine();
         switch (choice) {
+            case "5":
             case "4":
             case "3":
             case "2":

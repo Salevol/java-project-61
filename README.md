@@ -7,3 +7,5 @@ Calc game asciiema: \
 https://asciinema.org/a/wLegsannkkAlPFx7CXFcbm5Cj \
 GCD game asciiema: \
 https://asciinema.org/a/esiRqjzXEchUyO9SZNnvSNv8e \
+Progression game asciiema: \
+https://asciinema.org/a/PG907iD6VZMxFyToYmMiCxpZ8 \

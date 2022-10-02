@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -17,6 +18,7 @@ public class Engine {
         String name = input.nextLine();
         System.out.println("Hello, " + name + "!");
         switch (gameId) {
+            case "5" -> System.out.println("What number is missing in the progression?");
             case "4" -> System.out.println("Find the greatest common divisor of given numbers.");
             case "3" -> System.out.println("What is the result of the expression?");
             case "2" -> System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
@@ -31,6 +33,13 @@ public class Engine {
         int score = 0;
         while (score < VICTORY_SCORE) {
             switch (gameId) {
+                case "5":
+                if (Progression.playRound()) {
+                    score += 1;
+                } else {
+                    score = VICTORY_SCORE + 1;
+                }
+                break;
                 case "4":
                     if (GCD.playRound()) {
                         score += 1;
