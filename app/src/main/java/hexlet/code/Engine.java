@@ -13,7 +13,7 @@ public class Engine {
     private static final int VICTORY_SCORE = 3;
 
     public static String greeting(String gameId) {
-        System.out.print("Welcome to the Brain Games!");
+        System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         Scanner input = new Scanner(System.in);
         String name = input.nextLine();
