@@ -15,7 +15,7 @@ public class Calc {
         int number2 = rn.nextInt(MAX_RANGE);
         String operator = operations[rn.nextInt(operations.length)];
         questionAnswer[0] = (number1 + " " + operator + " " + number2);
-        questionAnswer[0] = switch (operator) {
+        questionAnswer[1] = switch (operator) {
             case "+" -> Integer.toString(number1 + number2);
             case "-" -> Integer.toString(number1 - number2);
             case "*" -> Integer.toString(number1 * number2);
