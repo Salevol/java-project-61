@@ -1,9 +1,8 @@
 package hexlet.code.games;
 
-import java.util.Random;
-import java.util.Scanner;
+import hexlet.code.Engine;
 
-import static hexlet.code.Engine.checkAnswer;
+import java.util.Random;
 
 public class Progression {
 
@@ -12,32 +11,35 @@ public class Progression {
     private static final int MAX_START_NUMBER = 20;
     private static final int MAX_STEP = 10;
 
-    public static String[] generateProgression(int length, int start, int step, int hiddenElementIndex) {
+    public static String[] generateProgression(int length, int start, int step) {
         String[] progression = new String[length];
         for (int i = 0; i < length; i++) {
-            String nextMember = String.valueOf(start + step * i);
-            progression[i] = nextMember;
-            if (i != hiddenElementIndex) {
-                System.out.print(nextMember + " ");
-            } else {
-                System.out.print(".. ");
-            }
+            progression[i] = Integer.toString(start + step * i);
         }
-        System.out.println("");
         return progression;
     }
 
-    public static Boolean playRound() {
+    public static String[] playRound() {
+        String[] questionAnswer = new String[2];
         Random rn = new Random();
         int length = rn.nextInt(PROGRESSION_RANGE) + MIN_PROGRESSION_LENGTH;
         int hiddenElementIndex = rn.nextInt(length);
         int start = rn.nextInt(MAX_START_NUMBER);
         int step = rn.nextInt(MAX_STEP);
-        System.out.print("Question: ");
-        String[] progression = generateProgression(length, start, step, hiddenElementIndex);
-        System.out.print("Your answer: ");
-        Scanner sc = new Scanner(System.in);
-        String answer = sc.nextLine();
-        return checkAnswer(progression[hiddenElementIndex], answer);
+        String[] progression = generateProgression(length, start, step);
+        questionAnswer[1] = progression[hiddenElementIndex];
+        progression[hiddenElementIndex] = "..";
+        questionAnswer[0] = String.join(" ", progression);
+        return questionAnswer;
     }
+
+    public static void playGame() {
+        Engine.greeting("5");
+        int score = 0;
+        while (score < Engine.VICTORY_SCORE) {
+            score = Engine.play(score, playRound());
+            Engine.roundResult(score);
+        }
+    }
+
 }
