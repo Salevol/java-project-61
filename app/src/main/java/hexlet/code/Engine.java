@@ -14,12 +14,25 @@ public class Engine {
         name = input.nextLine();
         System.out.println("Hello, " + name + "!");
         switch (gameId) {
-            case "6" -> System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-            case "5" -> System.out.println("What number is missing in the progression?");
-            case "4" -> System.out.println("Find the greatest common divisor of given numbers.");
-            case "3" -> System.out.println("What is the result of the expression?");
-            case "2" -> System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
-            default -> throw new RuntimeException("Game " + gameId + " not yet implemented");
+            case "6":
+                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+                break;
+            case "5":
+                System.out.println("What number is missing in the progression?");
+                break;
+            case "4":
+                System.out.println("Find the greatest common divisor of given numbers.");
+                break;
+            case "3":
+                System.out.println("What is the result of the expression?");
+                break;
+            case "2":
+                System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
+                break;
+            case "1":
+                break;
+            default:
+                throw new RuntimeException("Game " + gameId + " not yet implemented");
         }
     }
 
