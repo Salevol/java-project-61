@@ -27,7 +27,7 @@ public class Engine {
                 System.out.println("What is the result of the expression?");
                 break;
             case "2":
-                System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
+                System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
                 break;
             case "1":
                 break;
