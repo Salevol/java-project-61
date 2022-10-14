@@ -45,7 +45,6 @@ public class App {
             case "0":
                 break;
             default:
-                throw new RuntimeException("Game " + choice + " not yet implemented");
         }
     }
 }
