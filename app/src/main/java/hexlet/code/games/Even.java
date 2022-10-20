@@ -6,7 +6,7 @@ import hexlet.code.Utils;
 public class Even {
     private static final int MIN = 1;
     private static final int MAX = 1000;
-    private static final String DESCRIPTION = "What is the result of the expression?";
+    private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static String[] playRound() {
         int number = Utils.generateNumber(MIN, MAX);

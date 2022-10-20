@@ -6,7 +6,7 @@ import hexlet.code.Utils;
 public class Calc {
     private static final int MIN = 1;
     private static final int MAX = 100;
-    private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final String DESCRIPTION = "What is the result of the expression?";
     private static final char[] OPERATORS = {'+', '-', '*'};
     public static String[] playRound() {
         String[] questionAnswer = new String[2];
