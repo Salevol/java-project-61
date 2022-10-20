@@ -1,18 +1,18 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class GCD {
 
-    private static final int MAX_RANGE = 999;
+    private static final int MIN = 1;
+    private static final int MAX = 1000;
+    private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
     public static String[] playRound() {
         String[] questionAnswer = new String[2];
-        Random rn = new Random();
-        int number1 = 1 + rn.nextInt(MAX_RANGE);
-        int number2 = 1 + rn.nextInt(MAX_RANGE);
+        int number1 = Utils.generateNumber(MIN, MAX);
+        int number2 = Utils.generateNumber(MIN, MAX);
         questionAnswer[0] = (number1 + " " + number2);
         questionAnswer[1] = Integer.toString(calculateGCD(number1, number2));
         return questionAnswer;
@@ -27,12 +27,11 @@ public class GCD {
         }
     }
 
-    public static void playGame() {
-        Engine.greeting("4");
-        int score = 0;
-        while (score < Engine.VICTORY_SCORE) {
-            score = Engine.play(score, playRound());
-            Engine.roundResult(score);
+    public static void playGame(int victoryScore) {
+        String[][] gameRounds = new String[victoryScore][2];
+        for (int i = 0; i < victoryScore; i++) {
+            gameRounds[i] = playRound();
         }
+        Engine.play(DESCRIPTION, gameRounds);
     }
 }

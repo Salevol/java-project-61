@@ -4,56 +4,47 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static final int VICTORY_SCORE = 3;
-    private static String name = new String();
+    private static String name = "";
 
-    public static void greeting(String gameId) {
+    public static void greeting(String description) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         Scanner input = new Scanner(System.in);
         name = input.nextLine();
         System.out.println("Hello, " + name + "!");
-        switch (gameId) {
-            case "6":
-                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-                break;
-            case "5":
-                System.out.println("What number is missing in the progression?");
-                break;
-            case "4":
-                System.out.println("Find the greatest common divisor of given numbers.");
-                break;
-            case "3":
-                System.out.println("What is the result of the expression?");
-                break;
-            case "2":
-                System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-                break;
-            case "1":
-                break;
-            default:
-                throw new RuntimeException("Game " + gameId + " not yet implemented");
+        if (!description.equals("1")) {
+            System.out.println(description);
         }
     }
 
-    public static int play(int score, String[] questionAnswer) {
-        System.out.println("Question: " + questionAnswer[0]);
+    public static void play(String description, String[][] gameRounds) {
+        int victoryScore = gameRounds.length;
+        int score = 0;
+        Engine.greeting(description);
+        while (score < victoryScore) {
+            String answer = dealRound(gameRounds[score][0]);
+            String correctAnswer = gameRounds[score][1];
+            if (checkAnswer(correctAnswer, answer)) {
+                score++;
+            } else {
+                score = victoryScore + 1;
+            }
+            roundResult(score, victoryScore);
+        }
+    }
+
+    public static String dealRound(String question) {
+        System.out.println("Question: " + question);
         System.out.print("Your answer: ");
         Scanner sc = new Scanner(System.in);
         String answer = sc.nextLine();
-        int newScore = score;
-        if (checkAnswer(questionAnswer[1], answer)) {
-            newScore += 1;
-        } else {
-            newScore = VICTORY_SCORE + 1;
-        }
-        return newScore;
+        return answer;
     }
 
-    public static void roundResult(int score) {
-        if (score == VICTORY_SCORE) {
+    public static void roundResult(int score, int victoryScore) {
+        if (score == victoryScore) {
             System.out.println("Congratulations, " + name + "!");
-        } else if (score > VICTORY_SCORE) {
+        } else if (score > victoryScore) {
             System.out.println("Let's try again, " + name + "!");
         }
     }

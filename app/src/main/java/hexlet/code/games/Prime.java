@@ -1,15 +1,16 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-import java.util.Random;
 
 public class Prime {
-    private static final int MAX_RANGE = 1000;
+    private static final int MIN = 1;
+    private static final int MAX = 1000;
+    private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static String[] playRound() {
-        Random rn = new Random();
-        int number = rn.nextInt(MAX_RANGE);
+        int number = Utils.generateNumber(MIN, MAX);
         String[] questionAnswer = new String[2];
         questionAnswer[0] = Integer.toString(number);
         questionAnswer[1] = (isPrime(number)) ? "yes" : "no";
@@ -27,12 +28,11 @@ public class Prime {
         }
         return true;
     }
-    public static void playGame() {
-        Engine.greeting("6");
-        int score = 0;
-        while (score < Engine.VICTORY_SCORE) {
-            score = Engine.play(score, playRound());
-            Engine.roundResult(score);
+    public static void playGame(int victoryScore) {
+        String[][] gameRounds = new String[victoryScore][2];
+        for (int i = 0; i < victoryScore; i++) {
+            gameRounds[i] = playRound();
         }
+        Engine.play(DESCRIPTION, gameRounds);
     }
 }

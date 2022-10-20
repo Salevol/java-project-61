@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class App {
 
+    private static final int VICTORY_SCORE = 3;
     public static void main(String[] args) {
         System.out.println("""
                 Please enter the game number and press Enter.
@@ -25,19 +26,19 @@ public class App {
         String choice = sc.nextLine();
         switch (choice) {
             case "6":
-                Prime.playGame();
+                Prime.playGame(VICTORY_SCORE);
                 break;
             case "5":
-                Progression.playGame();
+                Progression.playGame(VICTORY_SCORE);
                 break;
             case "4":
-                GCD.playGame();
+                GCD.playGame(VICTORY_SCORE);
                 break;
             case "3":
-                Calc.playGame();
+                Calc.playGame(VICTORY_SCORE);
                 break;
             case "2":
-                Even.playGame();
+                Even.playGame(VICTORY_SCORE);
                 break;
             case "1":
                 Engine.greeting("1");
