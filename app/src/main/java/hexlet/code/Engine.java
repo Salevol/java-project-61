@@ -11,8 +11,8 @@ public class Engine {
         int score = 0;
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        Scanner input = new Scanner(System.in);
-        String name = input.nextLine();
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
         System.out.println("Hello, " + name + "!");
         if (!description.equals("1")) {
             System.out.println(description);
@@ -20,21 +20,18 @@ public class Engine {
         while (score < victoryScore) {
             System.out.println("Question: " + gameRounds[score][0]);
             System.out.print("Your answer: ");
-            Scanner sc = new Scanner(System.in);
             String answer = sc.nextLine();
             String correctAnswer = gameRounds[score][1];
-            if (answer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-                score++;
-            } else {
+            if (!answer.equals(correctAnswer)) {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'");
-                score = victoryScore + 1;
-            }
-            if (score == victoryScore) {
-                System.out.println("Congratulations, " + name + "!");
-            } else if (score > victoryScore) {
                 System.out.println("Let's try again, " + name + "!");
+                sc.close();
+                return;
             }
+            System.out.println("Correct!");
+            score++;
         }
+        System.out.println("Congratulations, " + name + "!");
+        sc.close();
     }
 }

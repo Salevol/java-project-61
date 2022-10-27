@@ -3,11 +3,13 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+
 public class Calc {
     private static final int MIN = 1;
     private static final int MAX = 100;
     private static final String DESCRIPTION = "What is the result of the expression?";
     private static final char[] OPERATORS = {'+', '-', '*'};
+
     public static String[] playRound() {
         String[] questionAnswer = new String[2];
         int number1 = Utils.generateNumber(MIN, MAX);
@@ -17,6 +19,7 @@ public class Calc {
         questionAnswer[1] = Integer.toString(calculate(operator, number1, number2));
         return questionAnswer;
     }
+
     public static int calculate(char operator, int number1, int number2) {
         return switch (operator) {
             case '+' -> number1 + number2;
@@ -25,9 +28,10 @@ public class Calc {
             default -> throw new RuntimeException("Unknown operator: " + operator);
         };
     }
-    public static void playGame(int victoryScore) {
-        String[][] gameRounds = new String[victoryScore][2];
-        for (int i = 0; i < victoryScore; i++) {
+
+    public static void playGame() {
+        String[][] gameRounds = new String[Engine.VICTORY_SCORE][2];
+        for (int i = 0; i < Engine.VICTORY_SCORE; i++) {
             gameRounds[i] = playRound();
         }
         Engine.play(DESCRIPTION, gameRounds);

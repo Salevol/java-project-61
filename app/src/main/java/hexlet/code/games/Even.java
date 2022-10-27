@@ -16,9 +16,9 @@ public class Even {
         return questionAnswer;
     }
 
-    public static void playGame(int victoryScore) {
-        String[][] gameRounds = new String[victoryScore][2];
-        for (int i = 0; i < victoryScore; i++) {
+    public static void playGame() {
+        String[][] gameRounds = new String[Engine.VICTORY_SCORE][2];
+        for (int i = 0; i < Engine.VICTORY_SCORE; i++) {
             gameRounds[i] = playRound();
         }
         Engine.play(DESCRIPTION, gameRounds);

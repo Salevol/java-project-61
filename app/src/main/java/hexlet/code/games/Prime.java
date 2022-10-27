@@ -3,7 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-
 public class Prime {
     private static final int MIN = 1;
     private static final int MAX = 1000;
@@ -28,11 +27,13 @@ public class Prime {
         }
         return true;
     }
-    public static void playGame(int victoryScore) {
-        String[][] gameRounds = new String[victoryScore][2];
-        for (int i = 0; i < victoryScore; i++) {
+
+    public static void playGame() {
+        String[][] gameRounds = new String[Engine.VICTORY_SCORE][2];
+        for (int i = 0; i < Engine.VICTORY_SCORE; i++) {
             gameRounds[i] = playRound();
         }
         Engine.play(DESCRIPTION, gameRounds);
+
     }
 }

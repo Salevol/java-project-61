@@ -25,19 +25,19 @@ public class App {
         String choice = sc.nextLine();
         switch (choice) {
             case "6":
-                Prime.playGame(Engine.VICTORY_SCORE);
+                Prime.playGame();
                 break;
             case "5":
-                Progression.playGame(Engine.VICTORY_SCORE);
+                Progression.playGame();
                 break;
             case "4":
-                GCD.playGame(Engine.VICTORY_SCORE);
+                GCD.playGame();
                 break;
             case "3":
-                Calc.playGame(Engine.VICTORY_SCORE);
+                Calc.playGame();
                 break;
             case "2":
-                Even.playGame(Engine.VICTORY_SCORE);
+                Even.playGame();
                 break;
             case "1":
                 System.out.println("Welcome to the Brain Games!");

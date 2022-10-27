@@ -9,6 +9,7 @@ public class Progression {
     private static final int MAX_START_NUMBER = 20;
     private static final int MAX_STEP = 10;
     private static final String DESCRIPTION = "What number is missing in the progression?";
+
     public static String[] generateProgression(int length, int start, int step) {
         String[] progression = new String[length];
         for (int i = 0; i < length; i++) {
@@ -29,9 +30,10 @@ public class Progression {
         questionAnswer[0] = String.join(" ", progression);
         return questionAnswer;
     }
-    public static void playGame(int victoryScore) {
-        String[][] gameRounds = new String[victoryScore][2];
-        for (int i = 0; i < victoryScore; i++) {
+
+    public static void playGame() {
+        String[][] gameRounds = new String[Engine.VICTORY_SCORE][2];
+        for (int i = 0; i < Engine.VICTORY_SCORE; i++) {
             gameRounds[i] = playRound();
         }
         Engine.play(DESCRIPTION, gameRounds);
